@@ -25,6 +25,8 @@ public class IndexController {
         model.addAttribute("time", new Date());
         model.addAttribute("message", userDao.findUserByName("张三"));
         logger.debug("查询");
+        User user = userDao.selectByPrimaryKey("1");
+        model.addAttribute("message2", user.toString() + "===");
         return "index";
     }
 

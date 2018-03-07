@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "mybatis-3-config.dtd" >
+<configuration>
+    <settings>
+        <!--&lt;!&ndash; 打印查询语句 &ndash;&gt;-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!-- 全局参数 -->
+        <!-- 使全局的映射器启用或禁用缓存。 -->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias type="com.asyf.springboot.User" alias="user"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="mappers/UserMapper.xml"></mapper>
+    </mappers>
+</configuration>
