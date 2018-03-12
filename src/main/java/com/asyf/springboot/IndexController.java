@@ -29,8 +29,8 @@ public class IndexController {
         logger.debug("查询");
         User user = userDao.selectByPrimaryKey("1");
         model.addAttribute("message2", user.toString() + "===");
-        Jedis jedis = new Jedis("localhost");
-        jedis.append("aa", ApplicationContextHolder.getApplicationContext().toString());
+        //Jedis jedis = new Jedis("localhost");
+       // jedis.append("aa", ApplicationContextHolder.getApplicationContext().toString());
         return "index";
     }
 
