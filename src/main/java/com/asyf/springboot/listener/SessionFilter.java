@@ -1,7 +1,5 @@
 package com.asyf.springboot.listener;
 
-import org.springframework.stereotype.Component;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
