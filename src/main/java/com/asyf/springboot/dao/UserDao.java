@@ -1,5 +1,6 @@
-package com.asyf.springboot;
+package com.asyf.springboot.dao;
 
+import com.asyf.springboot.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -13,4 +14,6 @@ public interface UserDao {
 
     //方式二：使用xml的查询方式，需要mapper.xml 和 mybatis-config.xml
     User selectByPrimaryKey(String id);
+
+    void updateUserById(User user);
 }

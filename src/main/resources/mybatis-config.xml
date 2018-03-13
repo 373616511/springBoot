@@ -10,7 +10,7 @@
     </settings>
 
     <typeAliases>
-        <typeAlias type="com.asyf.springboot.User" alias="user"/>
+        <typeAlias type="com.asyf.springboot.entity.User" alias="user"/>
     </typeAliases>
 
     <mappers>

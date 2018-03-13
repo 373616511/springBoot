@@ -1,4 +1,4 @@
-package com.asyf.springboot;
+package com.asyf.springboot.entity;
 
 import java.io.Serializable;
 
