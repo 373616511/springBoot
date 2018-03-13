@@ -14,7 +14,6 @@ import redis.clients.jedis.Jedis;
 import java.util.Date;
 
 @Controller
-@EnableAutoConfiguration
 public class IndexController {
 
     private final Logger logger = LoggerFactory.getLogger(IndexController.class);

@@ -1,18 +1,15 @@
 package com.asyf.springboot.util;
 
 import org.springframework.beans.BeansException;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
-public class ApplicationContextHolder {
+@Component
+public class ApplicationContextHolder implements ApplicationContextAware {
     private static ApplicationContext applicationContext;
 
-    public static void setApplicationContext(ApplicationContext ctx) throws BeansException {
+    public void setApplicationContext(ApplicationContext ctx) throws BeansException {
         System.err.println("setApplicationContext执行");
         applicationContext = ctx;
     }

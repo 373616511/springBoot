@@ -16,13 +16,10 @@ import org.springframework.data.redis.core.RedisTemplate;
 //配置控制
 @EnableAutoConfiguration*/
 //下面注解相当于上面三个
-@SpringBootApplication(scanBasePackages = "com.asyf")
+@SpringBootApplication
 public class SpringbootApplication {
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext = SpringApplication.run(IndexController.class, args);
-        RedisTemplate redisTemplate = (RedisTemplate) applicationContext.getBean("redisTemplate");
-        System.err.println("redisTemplate:" + redisTemplate);
-        ApplicationContextHolder.setApplicationContext(applicationContext);
+        ApplicationContext applicationContext = SpringApplication.run(SpringbootApplication.class, args);
     }
 }
