@@ -6,4 +6,6 @@ public interface UserService {
     User selectByPrimaryKey(String s);
 
     void updateUserById(User user);
+
+    void update(User user);
 }

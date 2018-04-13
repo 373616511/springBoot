@@ -16,4 +16,6 @@ public interface UserDao {
     User selectByPrimaryKey(String id);
 
     void updateUserById(User user);
+
+    void updateText(User user);
 }

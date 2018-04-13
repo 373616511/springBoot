@@ -1,6 +1,7 @@
 package com.asyf.springboot.entity;
 
 import java.io.Serializable;
+import java.sql.Clob;
 
 public class User implements Serializable {
 
@@ -9,6 +10,15 @@ public class User implements Serializable {
     private String id;
     private String name;
     private int age;
+    private String text;
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 
     public String getId() {
         return id;
@@ -33,6 +43,7 @@ public class User implements Serializable {
     public void setAge(int age) {
         this.age = age;
     }
+
 
     @Override
     public String toString() {

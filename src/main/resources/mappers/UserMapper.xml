@@ -8,9 +8,10 @@
         <id column="id" property="id" jdbcType="VARCHAR"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="age" property="age" jdbcType="INTEGER"/>
+        <result column="text" property="text" jdbcType="CLOB"></result>
     </resultMap>
     <sql id="Base_Column_List">
-    id, name,age
+    id, name,age,text
     </sql>
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
@@ -22,5 +23,9 @@
 
     <update id="updateUserById" parameterType="user">
         update user set name = #{name} where id = #{id}
+    </update>
+
+    <update id="updateText" parameterType="user">
+        update user set text = #{text} where id = #{id}
     </update>
 </mapper>

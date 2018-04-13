@@ -25,4 +25,9 @@ public class UserServiceImpl implements UserService {
         String a = null;
         //System.err.println(a.toString());
     }
+
+    @Override
+    public void update(User user) {
+        userDao.updateText(user);
+    }
 }
