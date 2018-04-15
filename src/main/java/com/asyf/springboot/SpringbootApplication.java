@@ -2,6 +2,7 @@ package com.asyf.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ApplicationContext;
 
 
@@ -13,6 +14,7 @@ import org.springframework.context.ApplicationContext;
 @EnableAutoConfiguration*/
 //下面注解相当于上面三个
 @SpringBootApplication
+@ServletComponentScan//扫描servlet
 public class SpringbootApplication {
 
     public static void main(String[] args) {

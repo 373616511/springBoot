@@ -10,5 +10,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         super.addResourceHandlers(registry);
         registry.addResourceHandler("/upload/**").addResourceLocations("file:D:\\upload\\");
+        //registry.addResourceHandler("/ckfinder/**").addResourceLocations("classpath:/static/ckfinder/");
     }
 }

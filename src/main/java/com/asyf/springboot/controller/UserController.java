@@ -33,11 +33,12 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/")
-    public String home(Model model) {
+    public String home(Model model, HttpServletRequest request) {
         model.addAttribute("time", new Date());
         //model.addAttribute("message", userDao.findUserByName("张三"));
         logger.debug("查询");
         User user = userService.selectByPrimaryKey("1");
+        request.getSession().setAttribute("user", user);
         model.addAttribute("user", user);
         model.addAttribute("message2", user.toString() + "===");
         //Jedis jedis = new Jedis("localhost");
@@ -74,7 +75,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public void uploadImage(@RequestParam("upload") MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
+    public void uploadImage(String CKEditorFuncNum, @RequestParam("upload") MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
         String name = "";
         String ckeditorStorageImagePath = "D:\\upload\\";
         String ckeditorAccessImageUrl = "http://127.0.0.1:8080/upload/";
@@ -103,8 +104,8 @@ public class UserController {
                 String fileUrl = ckeditorAccessImageUrl + File.separator + newfile.getName();
                 logger.error("文件路径：" + fileUrl);
                 // 将上传的图片的url返回给ckeditor
-                String callback = request.getParameter("CKEditorFuncNum");
-                String script = "<script type=\"text/javascript\">window.parent.CKEDITOR.tools.callFunction(" + callback + ", '" + fileUrl + "');</script>";
+                //String callback = request.getParameter("CKEditorFuncNum");
+                String script = "<script type=\"text/javascript\">window.parent.CKEDITOR.tools.callFunction(" + "1" + ", '" + fileUrl + "','');</script>";
 
                 out.println(script);
                 out.flush();
