@@ -8,6 +8,6 @@ CKEDITOR.editorConfig = function (config) {
     // config.language = 'fr';
     // config.uiColor = '#AADC6E';
     //config.filebrowserImageUploadUrl = '/upload';
-    config.filebrowserImageBrowseUrl = '/ckfinder/ckfinder.html?type=Images'//使用ckfinder
+    config.filebrowserImageBrowseUrl = '/ckfinder/ckfinder.html?type=Images';//使用ckfinder
     config.image_previewText = '';     //预览区域显示内容
 };
