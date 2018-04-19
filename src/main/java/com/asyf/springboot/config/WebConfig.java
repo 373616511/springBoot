@@ -45,7 +45,7 @@ public class WebConfig {
         Trigger trigger = triggerTriggerBuilder.build();
         */
         CronScheduleBuilder cronScheduleBuilder = CronScheduleBuilder.cronSchedule("0/5 * * * * ?");
-        cronScheduleBuilder.withMisfireHandlingInstructionDoNothing();
+        cronScheduleBuilder.withMisfireHandlingInstructionIgnoreMisfires();
         TriggerBuilder<Trigger> triggerTriggerBuilder = TriggerBuilder.newTrigger();
         triggerTriggerBuilder.withIdentity("MyTrigger");
         triggerTriggerBuilder.withSchedule(cronScheduleBuilder);
