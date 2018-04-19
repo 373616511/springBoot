@@ -23,6 +23,22 @@
             $("#file").click(function () {
                 window.open("/ckfinder/ckfinder.html");
             });
+            $("#start").click(function () {
+                $.ajax({
+                    url: "/startJob",
+                    success: function (data) {
+                        alert(data);
+                    }
+                });
+            });
+            $("#pause").click(function () {
+                $.ajax({
+                    url: "/shutdownJob",
+                    success: function (data) {
+                        alert(data);
+                    }
+                });
+            });
         });
 
         function setFileField(fileUrl, data) {
@@ -34,6 +50,10 @@
     </script>
 </head>
 <body>
+
+<button id="start">启动</button>
+<button id="pause">暂停</button>
+<hr>
 Date: ${time?date}
 <br>
 Time: ${time?time}

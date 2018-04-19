@@ -2,7 +2,12 @@ package com.asyf.springboot.controller;
 
 import com.asyf.springboot.dao.UserDao;
 import com.asyf.springboot.entity.User;
+import com.asyf.springboot.schedule.MyJob;
 import com.asyf.springboot.service.UserService;
+import org.quartz.JobDetail;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
+import org.quartz.Trigger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +36,12 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    Scheduler scheduler;
+    @Autowired
+    private JobDetail jobDetail;
+    @Autowired
+    private Trigger trigger;
 
     @RequestMapping("/")
     public String home(Model model, HttpServletRequest request) {
@@ -44,6 +55,32 @@ public class UserController {
         //Jedis jedis = new Jedis("localhost");
         // jedis.append("aa", ApplicationContextHolder.getApplicationContext().toString());
         return "index";
+    }
+
+    @RequestMapping(value = "/shutdownJob")
+    @ResponseBody
+    public String shutdownJob() {
+        String result = "关闭成功";
+        try {
+            scheduler.standby();
+        } catch (SchedulerException e) {
+            e.printStackTrace();
+            result = "关闭失败";
+        }
+        return scheduler.toString() + "-------" + result + "-----key=" + MyJob.triggerKey;
+    }
+
+    @RequestMapping(value = "/startJob")
+    @ResponseBody
+    public String startJob() {
+        String result = "启动成功";
+        try {
+            scheduler.start();
+        } catch (SchedulerException e) {
+            e.printStackTrace();
+            result = "启动失败";
+        }
+        return scheduler.toString() + "-------" + result + "-----key=" + MyJob.triggerKey;
     }
 
     @RequestMapping(value = "/test")
