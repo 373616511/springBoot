@@ -45,7 +45,9 @@ public class WebConfig {
         Trigger trigger = triggerTriggerBuilder.build();
         */
         CronScheduleBuilder cronScheduleBuilder = CronScheduleBuilder.cronSchedule("0/5 * * * * ?");
-        cronScheduleBuilder.withMisfireHandlingInstructionIgnoreMisfires();
+        //org.quartz.jobStore.misfireThreshold: 600在属性文件中设置，超过600ms才算misfire，若小于600ms
+        //即使设置了withMisfireHandlingInstructionDoNothing也会恢复执行
+        cronScheduleBuilder.withMisfireHandlingInstructionDoNothing();
         TriggerBuilder<Trigger> triggerTriggerBuilder = TriggerBuilder.newTrigger();
         triggerTriggerBuilder.withIdentity("MyTrigger");
         triggerTriggerBuilder.withSchedule(cronScheduleBuilder);

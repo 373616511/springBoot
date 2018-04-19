@@ -28,7 +28,7 @@ public class MyJob implements Job {
         System.err.println(i + "---" + "scheduleTest开始定时执行" + new Date() + "下次执行时间：" + jobExecutionContext.getNextFireTime() + Thread.currentThread().getName());
         if (i < 4) {
             try {
-                Thread.currentThread().sleep(10000);
+                Thread.currentThread().sleep(11000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
